@@ -1,11 +1,14 @@
 package accessmodifiers;
 
-public class Testaccess {
-	
+public class AccessModifiersExample {
+
+		private String publicVar;
+		private String protectedVar;
+		private String defaultVar;
 
 		public static void main(String[] args) {
 			
-			Testaccess ame = new Testaccess();
+			AccessModifiersExample ame = new AccessModifiersExample();
 			
 			System.out.println("Public Variable: "+ ame.publicVar);
 			//System.out.println("Private Variable: "+ ame.privateVar);
@@ -13,4 +16,5 @@ public class Testaccess {
 			System.out.println("Default Variable: "+ ame.defaultVar);
 
 		}
+
 }
