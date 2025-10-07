@@ -1,0 +1,248 @@
+// =======================
+// Variables
+// =======================
+$primary-gradient: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+$danger-gradient: linear-gradient(135deg, #ff9a9e, #fecfef);
+$table-header-gradient: linear-gradient(135deg, #cfd9df, #e2ebf0);
+
+$shadow-color: rgba(0, 0, 0, 0.4);
+$border-radius: 14px;
+$transition: 0.3s ease;
+
+// =======================
+// Dark Gradient Background
+// =======================
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1a1a2e);
+  background-size: 400% 400%;
+  animation: darkFlow 12s ease infinite;
+  color: #000; // Default text color black
+}
+
+@keyframes darkFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+// =======================
+// Form Box (Glassmorphism on Dark Background)
+// =======================
+.shadow.w-20.p-5.position-absolute.top-50.start-50.translate-middle {
+  width: 420px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(18px);
+  border-radius: $border-radius;
+  box-shadow: 0 8px 24px $shadow-color;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  animation: floatCard 6s ease-in-out infinite;
+  color: #000; // Text inside form is black
+}
+
+@keyframes floatCard {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(-10px); }
+}
+
+form {
+  h4 {
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    background: $primary-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+  }
+
+  label {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: #000; // Black labels
+  }
+
+  input.form-control {
+    border-radius: $border-radius;
+    border: 2px solid #ddd;
+    background: #fff;
+    color: #000; // Black text
+    padding: 0.6rem 0.8rem;
+    transition: all $transition;
+
+    &::placeholder {
+      color: #555;
+    }
+
+    &:focus {
+      border-color: #a18cd1;
+      box-shadow: 0 0 12px rgba(161, 140, 209, 0.5);
+    }
+  }
+
+  small.text-danger {
+    font-size: 0.8rem;
+    color: #ff4d6d !important;
+  }
+
+  .btn.btn-primary {
+    margin-top: 1rem;
+    width: 100%;
+    border-radius: $border-radius;
+    background: $primary-gradient;
+    border: none;
+    font-weight: 600;
+    transition: all $transition;
+    color: #fff;
+
+    &:hover {
+      background: linear-gradient(135deg, #fbc2eb, #a18cd1);
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(161, 140, 209, 0.6);
+    }
+  }
+}
+
+// =======================
+// Table Styling (Dark bg, light table, black text)
+// =======================
+.mt-5 {
+  table {
+    border-radius: $border-radius;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.9);
+
+    thead {
+      background: $table-header-gradient;
+      color: #000; // Black text
+
+      th {
+        text-align: center;
+        padding: 0.9rem;
+        font-weight: 600;
+      }
+    }
+
+    tbody {
+      td {
+        text-align: center;
+        vertical-align: middle;
+        padding: 0.8rem;
+        color: #000; // Black text
+      }
+
+      tr {
+        transition: all $transition;
+
+        &:nth-child(even) {
+          background: rgba(0, 0, 0, 0.04);
+        }
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.08);
+          box-shadow: 0 0 12px rgba(161, 140, 209, 0.35);
+        }
+      }
+    }
+  }
+
+  .btn {
+    border-radius: $border-radius;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #fff;
+
+    &.btn-primary {
+      background: $primary-gradient;
+      border: none;
+
+      &:hover {
+        background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+        box-shadow: 0 0 12px rgba(161, 140, 209, 0.4);
+      }
+    }
+
+    &.btn-danger {
+      background: $danger-gradient;
+      border: none;
+
+      &:hover {
+        background: linear-gradient(135deg, #fecfef, #ff9a9e);
+        box-shadow: 0 0 12px rgba(255, 154, 158, 0.4);
+      }
+    }
+  }
+}
+
+// =======================
+// Modal Styling
+// =======================
+.modal-content {
+  border-radius: $border-radius;
+  box-shadow: 0 8px 24px $shadow-color;
+  border: none;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  color: #000; // Black text
+
+  .modal-header {
+    background: $primary-gradient;
+    color: #fff;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+
+    h1, .modal-title {
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .btn-close {
+      filter: invert(0); // Keep black close button
+    }
+  }
+
+  .modal-body {
+    padding: 2rem;
+    color: #000; // Black text
+
+    h4 {
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      color: #000;
+    }
+
+    input.form-control {
+      border-radius: $border-radius;
+      border: 2px solid #ddd;
+      background: #fff;
+      color: #000;
+
+      &::placeholder {
+        color: #555;
+      }
+
+      &:focus {
+        border-color: #a18cd1;
+        box-shadow: 0 0 12px rgba(161, 140, 209, 0.5);
+      }
+    }
+
+    .btn-primary {
+      margin-top: 1rem;
+      width: 100%;
+      border-radius: $border-radius;
+      background: $primary-gradient;
+      border: none;
+      font-weight: 600;
+      color: #fff;
+
+      &:hover {
+        background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+        box-shadow: 0 0 14px rgba(161, 140, 209, 0.5);
+      }
+    }
+  }
+}
